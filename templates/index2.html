@@ -22,30 +22,39 @@
   <section id="Banner" class="content-section">
     <div class="container content-wrap">
       <h1>Question Answering Bot</h1>
+        <h4>Please write story and question only using words and signs listed below, remember also to put 'space' betweend words as well as between punctuation marks</h4>
+        <br>
         <hr>
-        <a class="btn btn-primary btn-l" href="/get_question">Generate Random Question</a>
-        
-        <a class="btn btn-primary btn-l" href="/ask_question">Write your own question</a>
-        
-        <p></p>
+        <p>{{ vocab }}</p>
         <br>
-        <p class="lead">Story:</p><p><b> {{ story }}</b></p>
-        <p class="lead">Question:</p><p><b> {{ question }}</b></p>
-        <!-- <p class="lead">Correct Answer:</p><p><b> {{ correct_answer }}</b></p> -->
-        <br>
-        <a class="btn btn-primary btn-l" href="/predict">Predict Answer</a>
+        <h3>{{ warning }}</h3>
+        <h6>{{ missmached_words }}</h6>
+        <form action = 'predict_answer' method="post">
+          <p class="lead">Story:</p>
+          <p <b> {{ saved_story }} </b> </p>
+          <input type="text" name="input_story" required size="100">
+          <p class="lead">Question:</p>
+          <p <b> {{ saved_question }} </b> </p>
+          <input type="text" name="input_question" required size="50">
+          <!-- <p class="lead">Answer:</p>
+          <input type="text" name="input_answer" required minlength="2" maxlength="3"  size="10"> -->
+          <p></p>
+          <br>
+          
+          <input class="btn btn-primary btn-xl" type="submit" value="Predict Answer">
+        </form>
         <br>
         <p></p>
         <p class="lead">Predicted Answer:</p><p><b> {{ pred_answer }}</b></p>
         <p class="lead">Prediction confidence:</p><p><b> {{ pred_conf }}</b></p>
-        <br>
+        
         <hr>
         <br>
-        <a class="btn btn-primary btn-xl" href="/">Reset</a>
+        <a class="btn btn-primary btn-xl" href="/ask_question">Reset</a>
+        <a class="btn btn-primary btn-xl" href="/">Return to a main page</a>
         
     </div>
     <div class="overlay"></div>
-    
   </section>
 
 </body>
